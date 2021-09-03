@@ -1,0 +1,19 @@
+<p>In Questa pagina si visualizzano le informazioni relative all'utente selezionato.</p>   
+    <div *ngIf="verificaLogin; else utenteNonLoggato">
+      Utente Collegato
+        <ul>
+            <li >             
+                <strong>Immagine:</strong><strong>Immagine:</strong> <img src="{{loggedService.assetsPath}}{{selectedUser.image}}.png"> <br/> <br/>
+                <strong>Nome:</strong> {{selectedUser.name}}|
+                <strong>Nome:</strong> {{selectedUser.name}} <br/>
+               <strong>Cognome:</strong>    {{selectedUser.surname}}   <br/>
+               <strong>Eta':</strong>    {{selectedUser.age}}  <br/>
+               <strong>Descrizione:</strong>    {{selectedUser.description}}   <br/>
+               <br/> <br/> <br/>
+            </li>
+          </ul>
+
+  </div> 
+  <ng-template #utenteNonLoggato>
+       Non e' possibile visualizzare la rete,nessun Utente e' loggato
+ </ng-template>

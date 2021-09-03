@@ -1,0 +1,24 @@
+<p>In Questa pagina vengono visualizzati tutti gli utenti del Network relativi all'utente collegato.</p>   
+    <div *ngIf="verificaLogin; else utenteNonLoggato">
+      Utente Collegato
+        <ul>
+            <li *ngFor="let user of users">
+                <strong>Immagine:</strong>  <a (click)="navigateToUser(user)" ><img src="{{loggedService.assetsPath}}{{user.image}}.png"></a>  <br/>
+                <strong>Nome:</strong> {{user.name}}|  <br/>
+               <strong>Cognome:</strong>    {{user.surname}}   <br/>
+               <strong>Eta':</strong>    {{user.age}}  <br/>
+               <strong>Descrizione:</strong>    {{user.description}}   <br/>
+               <br/> <br/> <br/>
+            </li>
+          </ul>
+
+  </div> 
+  <ng-template #utenteNonLoggato>
+       Non e' possibile visualizzare la rete,nessun Utente e' loggato
+ </ng-template>
+
+
+ 
+ <div>
+     <router-outlet></router-outlet>
+ </div>

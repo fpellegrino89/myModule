@@ -1,0 +1,28 @@
+<p>In Questa pagina vengono visualizzate le note dell'utente collegato.</p>   
+    <div *ngIf="verificaLogin; else utenteNonLoggato">
+      Utente Collegato  <h2>{{loggedService.users.name}}   </h2>
+      <ul>
+        <li *ngFor="let note of listaNote">  
+          <div *ngIf="note.id_note<=18">
+            {{note.id_note}} - {{note.note}} 
+          </div>
+          <div *ngIf="note.id_note>18">
+            {{note.id_note}} - {{note.note}}<button type="button"   (click)="eliminaNota(note.id_note)"> Elimina</button>  
+          </div>
+          <br/> <br/>
+        </li>
+        <input type="text" name="nota" [(ngModel)]="nota" #myNome='ngModel'>
+        <button type="button"   (click)="aggiungiNota()"> Aggiungi</button>
+      </ul>
+
+
+  </div> 
+  <ng-template #utenteNonLoggato>
+       Non e' possibile visualizzare la rete,nessun Utente e' loggato
+ </ng-template>
+
+
+ 
+ <div>
+     <router-outlet></router-outlet>
+ </div>

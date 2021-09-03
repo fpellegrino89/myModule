@@ -1,0 +1,23 @@
+<form #myForm="ngForm" (ngSubmit)="inviaLoginForm()">
+
+    <div *ngIf="!verificaLogin()">
+
+        <label><strong>Nome</strong>  </label>      
+        <input type="text" name="name" [(ngModel)]="name" #myNome='ngModel' required>
+        <br>
+        <label><strong>Password</strong></label>
+        <input type="number" name="password" [(ngModel)]="password" #myPw='ngModel' required>
+                
+        <button type="submit"  [disabled]="!myForm.valid" >Login </button>
+    </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+    <button type="button"  [disabled]="!verificaLogin()" (click)="logOut()"> Logout </button>
+   
+    <div *ngIf="verificaLogin()">
+        {{logged.nome}} è loggato: {{logged.log}}
+    </div>
+  </form>
